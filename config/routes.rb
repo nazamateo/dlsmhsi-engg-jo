@@ -2,8 +2,14 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :admin do
+    resources :jobs, only: %i[index show edit update]
+  end
+
+  namespace :requestor do
+    resources :jobs, only: %i[index show new update]
+  end
 
     root to: "home#index"
 
