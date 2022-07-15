@@ -12,4 +12,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :jobs, dependent: :destroy
 
+  validates :name, :surname, :position, :unit, presence: true
+  validates :service, inclusion: { in: ['Admin Services', 'Finance Services', 'Hospital Operations', 'Academics', 'Research', 'Lasallian Misson, Linkages and Advancement']}
 end
