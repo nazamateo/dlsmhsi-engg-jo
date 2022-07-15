@@ -1,2 +1,0 @@
-class Personnel < ApplicationRecord
-end
