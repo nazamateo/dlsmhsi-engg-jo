@@ -7,9 +7,19 @@ Rails.application.routes.draw do
     resources :jobs, only: %i[index show edit update]
   end
 
-  namespace :requestor do
-    resources :jobs, only: %i[index show new update]
+  namespace :admin do
+    resources :dashboard, only: %i[index]
   end
+
+
+  namespace :requestor do
+    resources :jobs, only: %i[index show new create update]
+  end
+
+  namespace :requestor do
+    resources :dashboard, only: %i[index]
+  end
+
 
     root to: "home#index"
 
